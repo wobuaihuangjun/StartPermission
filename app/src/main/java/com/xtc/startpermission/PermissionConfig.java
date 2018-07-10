@@ -35,7 +35,7 @@ class PermissionConfig {
                     "com.iqoo.secure.MainGuideActivity"),// i管家主界面。vivo X5Pro D
     };
 
-    static final PermissionConfig[] XIAOMI = { //测试通过：MI 4、MI 6
+    static final PermissionConfig[] XIAOMI = { //测试通过：MI 4、MI 6、MIX 2
             new PermissionConfig("com.miui.securitycenter",
                     "com.miui.permcenter.autostart.AutoStartManagementActivity")
     };
@@ -67,7 +67,7 @@ class PermissionConfig {
                     "com.android.settings.Settings$AppAndNotificationDashboardActivity"),// 应用和权限 界面
 
             new PermissionConfig("com.yulong.android.coolsafe",
-                    "com.yulong.android.coolsafe.ui.activity.autorun.AutoRunListActivity")
+                    "com.yulong.android.coolsafe.ui.activity.autorun.AutoRunListActivity")// 未测试
     };
 
     static final PermissionConfig[] IMOO = { // 测试通过：C1
