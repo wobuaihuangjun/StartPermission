@@ -20,15 +20,25 @@ public class OpenAutoStartUtil {
 
     private static final String OPPO_PHONE = "oppo";
 
-    private static final String HUAWEI_PHONE = "huawei";//CHM-UL00  Honor
+    private static final String HUAWEI_PHONE = "huawei";
 
     private static final String VIVO_PHONE = "vivo";
 
     private static final String XIAOMI_PHONE = "xiaomi";
 
-    private static final String HTC_PHONE = "htc";
+    private static final String MEIZU_PHONE = "meizu";
 
-    private static final String IMMO_PHONE = "immo";
+    private static final String SAMSUNG_PHONE = "samsung";
+
+    private static final String HTC_PHONE = "htc";// 不支持设置，google系统
+
+    private static final String TCL_PHONE = "tcl";
+
+    private static final String LETV_PHONE = "Letv"; //乐视
+
+    private static final String PHONE360 = "360"; // 360
+
+    private static final String IMMO_PHONE = "immo"; // 步步高IMOO
 
 
     public static boolean jumpStartPermissionSetting(Context context, String packageName, String className) {
@@ -68,6 +78,12 @@ public class OpenAutoStartUtil {
             permissionConfigs = PermissionConfig.VIVO;
         }else if (XIAOMI_PHONE.equals(product) || XIAOMI_PHONE.equals(brand)) {
             permissionConfigs = PermissionConfig.XIAOMI;
+        }else if (MEIZU_PHONE.equals(product) || MEIZU_PHONE.equals(brand)) {
+            permissionConfigs = PermissionConfig.MEIZU;
+        }else if (SAMSUNG_PHONE.equals(product) || SAMSUNG_PHONE.equals(brand)) {
+            permissionConfigs = PermissionConfig.SAMSUNG;
+        }else if (PHONE360.equals(product) || PHONE360.equals(brand)) {
+            permissionConfigs = PermissionConfig.PHONE360;
         }else if (IMMO_PHONE.equals(product) || IMMO_PHONE.equals(brand)) {
             permissionConfigs = PermissionConfig.IMOO;
         }else {
@@ -88,16 +104,7 @@ public class OpenAutoStartUtil {
 
             if (product.equals("Letv")) { // 乐视2测试通过
                 intent.setAction("com.letv.android.permissionautoboot");
-            } else if (product.equals("samsung")) { // 三星Note5测试通过
-                componentName = new ComponentName("com.samsung.android.sm_cn",
-                        "com.samsung.android.sm.ui.ram.AutoRunActivity");
-            } else if (product.equals("Meizu")) { //万恶的魅族
-                // 通过测试，发现魅族是真恶心，也是够了，之前版本还能查看到关于设置自启动这一界面，
-                // 系统更新之后，完全找不到了，心里默默Fuck！
-                // 针对魅族，我们只能通过魅族内置手机管家去设置自启动，
-                // 所以我在这里直接跳转到魅族内置手机管家界面，具体结果请看图
-                componentName = ComponentName.unflattenFromString("com.meizu.safe" +
-                        "/.permission.PermissionMainActivity");
+
             } else if (product.equals("OPPO")) { // OPPO R8205测试通过
                 componentName = ComponentName.unflattenFromString("com.oppo.safe" +
                         "/.permission.startup.StartupAppListActivity");
