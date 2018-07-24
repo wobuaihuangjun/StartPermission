@@ -74,4 +74,12 @@ class PermissionConfig {
             new PermissionConfig("com.eebbk.bbksafe",
                     "com.eebbk.bbksafe.module.permission.PermissionActivity")
     };
+
+    static final PermissionConfig[] SMARTISAN = {
+            new PermissionConfig("com.smartisanos.security",
+                    "com.smartisanos.security.PackagesOverview"),
+
+            new PermissionConfig("com.android.settings",
+                    "com.android.settings.fuelgauge.appBatteryUseOptimization.AppBatteryUseOptimizationActivity")
+    };
 }

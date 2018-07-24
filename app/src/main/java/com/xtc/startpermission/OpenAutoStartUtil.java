@@ -38,6 +38,8 @@ public class OpenAutoStartUtil {
 
     private static final String IMMO_PHONE = "immo"; // 步步高IMOO
 
+    private static final String SMARTISAN_PHONE = "smartisan"; // 锤子
+
 
     public static boolean jumpStartPermissionSetting(Context context, String packageName, String className) {
         ComponentName componentName;
@@ -60,34 +62,36 @@ public class OpenAutoStartUtil {
      * Compatible Mainstream Models 兼容市面主流机型
      */
     public static void jumpStartInterface(Context context) {
-        String brand = DeviceUtil.getPhoneBrand().toLowerCase();
-        String product = DeviceUtil.getPhoneProduct().toLowerCase();
+        String brand = DeviceUtil.getPhoneBrand();
+        String product = DeviceUtil.getPhoneProduct();
         String model = DeviceUtil.getPhoneModel();
         Log.d(TAG, "手机品牌brand：" + brand + "，厂商product：" + product + "，型号model：" + model);
 
         PermissionConfig[] permissionConfigs = {};
-        if (HUAWEI_PHONE.equals(product) || HUAWEI_PHONE.equals(brand)) {
+        if (HUAWEI_PHONE.equalsIgnoreCase(product) || HUAWEI_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.HUAWEI;
-        } else if (OPPO_PHONE.equals(product) || OPPO_PHONE.equals(brand)) {
+        } else if (OPPO_PHONE.equalsIgnoreCase(product) || OPPO_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.OPPO;
-        }else if (VIVO_PHONE.equals(product) || VIVO_PHONE.equals(brand)) {
+        } else if (VIVO_PHONE.equalsIgnoreCase(product) || VIVO_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.VIVO;
-        }else if (XIAOMI_PHONE.equals(product) || XIAOMI_PHONE.equals(brand)) {
+        } else if (XIAOMI_PHONE.equalsIgnoreCase(product) || XIAOMI_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.XIAOMI;
-        }else if (MEIZU_PHONE.equals(product) || MEIZU_PHONE.equals(brand)) {
+        } else if (MEIZU_PHONE.equalsIgnoreCase(product) || MEIZU_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.MEIZU;
-        }else if (SAMSUNG_PHONE.equals(product) || SAMSUNG_PHONE.equals(brand)) {
+        } else if (SAMSUNG_PHONE.equalsIgnoreCase(product) || SAMSUNG_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.SAMSUNG;
-        }else if (PHONE360.equals(product) || PHONE360.equals(brand)) {
+        } else if (PHONE360.equalsIgnoreCase(product) || PHONE360.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.PHONE360;
-        }else if (IMMO_PHONE.equals(product) || IMMO_PHONE.equals(brand)) {
+        } else if (IMMO_PHONE.equalsIgnoreCase(product) || IMMO_PHONE.equalsIgnoreCase(brand)) {
             permissionConfigs = PermissionConfig.IMOO;
-        }else {
+        } else if (SMARTISAN_PHONE.equalsIgnoreCase(product) || SMARTISAN_PHONE.equalsIgnoreCase(brand)) {
+            permissionConfigs = PermissionConfig.SMARTISAN;
+        } else {
             Log.d(TAG, "当前手机未适配");
         }
 
         for (PermissionConfig permissionConfig : permissionConfigs) {
-            if(jumpStartPermissionSetting(context, permissionConfig.packageName, permissionConfig.className)){
+            if (jumpStartPermissionSetting(context, permissionConfig.packageName, permissionConfig.className)) {
                 return;
             }
         }
