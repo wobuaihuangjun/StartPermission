@@ -79,8 +79,11 @@ class PermissionConfig {
     };
 
     static final PermissionConfig[] SMARTISAN = {
+//            new PermissionConfig("com.smartisanos.security",
+//                    "com.smartisanos.security.RadioPermissions"),//坚果3 自启动权限管理(不可用)
+
             new PermissionConfig("com.smartisanos.security",
-                    "com.smartisanos.security.RadioPermissions"),//坚果3 自启动权限管理
+                    "com.smartisanos.security.PermissionsActivity"),//坚果3 权限管理
 
             new PermissionConfig("com.smartisanos.security",
                     "com.smartisanos.security.PackagesOverview"),//后台启动
