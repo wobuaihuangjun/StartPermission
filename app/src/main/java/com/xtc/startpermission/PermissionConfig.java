@@ -13,6 +13,9 @@ class PermissionConfig {
 
     static final PermissionConfig[] HUAWEI = {// 测试通过：
             new PermissionConfig("com.huawei.systemmanager",
+                    "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity"),//mate 9
+
+            new PermissionConfig("com.huawei.systemmanager",
                     "com.huawei.systemmanager.optimize.process.ProtectActivity"),// 后台进程保护界面
 
             new PermissionConfig("com.huawei.systemmanager",
@@ -77,9 +80,9 @@ class PermissionConfig {
 
     static final PermissionConfig[] SMARTISAN = {
             new PermissionConfig("com.smartisanos.security",
-                    "com.smartisanos.security.PackagesOverview"),
+                    "com.smartisanos.security.PackagesOverview"),//后台启动
 
             new PermissionConfig("com.android.settings",
-                    "com.android.settings.fuelgauge.appBatteryUseOptimization.AppBatteryUseOptimizationActivity")
+                    "com.android.settings.fuelgauge.appBatteryUseOptimization.AppBatteryUseOptimizationActivity")//耗电保护
     };
 }
